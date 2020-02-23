@@ -5,7 +5,12 @@ public class Example
 {
     public static void Main()
     {
-        string pattern = @"[A-Z]";
+        string pattern = @"[d-e]";
+        string patternB = @"[d-e][*d]";
+        string patternC = @"[a][a-z][a]";
+        string patternD = @"[ ][p][a-z]*";
+        string patternE = @"[a-z]*[e][ ]";
+        string patternF = @"[A-Z]";
         string input = @"Episode IV, A NEW HOPE It is a period of civil war. Rebel spaceships, striking from a hidden
 base, have won their first victory against the evil Galactic Empire. During the battle, Rebel spies
 managed to steal secret plans to the Empire’s ultimate weapon, the DEATH STAR, an armored
@@ -15,6 +20,31 @@ save her people and restore freedom to the galaxy….";
         RegexOptions options = RegexOptions.Multiline;
 
         foreach (Match m in Regex.Matches(input, pattern, options))
+        {
+            Console.WriteLine("'{0}' found at index {1}.", m.Value, m.Index);
+        }
+
+        foreach (Match m in Regex.Matches(input, patternB, options))
+        {
+            Console.WriteLine("'{0}' found at index {1}.", m.Value, m.Index);
+        }
+
+        foreach (Match m in Regex.Matches(input, patternC, options))
+        {
+            Console.WriteLine("'{0}' found at index {1}.", m.Value, m.Index);
+        }
+
+        foreach (Match m in Regex.Matches(input, patternD, options))
+        {
+            Console.WriteLine("'{0}' found at index {1}.", m.Value, m.Index);
+        }
+
+        foreach (Match m in Regex.Matches(input, patternE, options))
+        {
+            Console.WriteLine("'{0}' found at index {1}.", m.Value, m.Index);
+        }
+
+        foreach (Match m in Regex.Matches(input, patternF, options))
         {
             Console.WriteLine("'{0}' found at index {1}.", m.Value, m.Index);
         }
